@@ -3,6 +3,7 @@
 import sys
 import pygame
 
+
 class AlienInvasion:
     """Overall class to manage game assets and behaviour."""
 
@@ -25,7 +26,7 @@ class AlienInvasion:
 
             # Make the most recently drawn screen visible.
 
-            pygame.diplsy.flip()
+            pygame.display.flip()
 
 
 if __name__ == '__main__':
