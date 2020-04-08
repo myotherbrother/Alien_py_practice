@@ -62,6 +62,8 @@ class AlienInvasion:
         """start a new game when the play button is clicked"""
         button_clicked = self.play_button.rect.collidepoint(mouse_pos)
         if button_clicked and not self.stats.game_active:
+            # Reset the game settings.
+            self.settings.initialize_dynamic_settings()
             # Reset the game statistics.
             self.stats.reset_stats()
             self.stats.game_active = True
@@ -126,6 +128,7 @@ class AlienInvasion:
 
             self.bullets.empty()
             self._create_fleet()
+            self.settings.increase_speed()
 
     def _update_aliens(self):
         """Update the positions of all aliens in the fleet"""
@@ -209,7 +212,7 @@ class AlienInvasion:
         """Drop the entier fleet and change the fleet's direction."""
         for alien in self.aliens.sprites():
             alien.rect.y += self.settings.fleet_drop_speed
-        self.settings.fleet_direction *= -1
+        self.settings.fleet_direction *= - 1
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen"""
